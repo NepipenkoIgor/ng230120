@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { MatDrawer } from '@angular/material';
 
 @Component({
   selector: 'courses-sidebar',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  @Output()
+  public setSidenavControl: EventEmitter<MatDrawer> = new EventEmitter<MatDrawer>(true);
 
-  ngOnInit() {
+  @ViewChild('drawer', {static: true})
+  public drawer!: MatDrawer;
+
+  public ngOnInit() {
+    this.setSidenavControl.emit(this.drawer);
   }
 
 }

@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { MatButtonModule, MatListModule, MatSidenavModule, MatToolbarModule } from '@angular/material';
+import { MatButtonModule, MatIconModule, MatListModule, MatSidenavModule, MatToolbarModule } from '@angular/material';
 import { SidebarComponent } from './sidebar/sidebar.component';
 // NgModule -> es6 module
 //  declarations => const/let
@@ -22,6 +22,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     MatSidenavModule,
     MatListModule,
     MatButtonModule,
+    MatIconModule,
   ],
   bootstrap: [AppComponent],
 })

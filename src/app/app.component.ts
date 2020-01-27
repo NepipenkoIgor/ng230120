@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatDrawer } from '@angular/material';
 
 @Component({
   selector: 'course-root#test',
@@ -7,5 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public title = 'ng230120';
+  public drawer !: MatDrawer;
 
+  public setSidenav(drawer: MatDrawer) {
+    this.drawer = drawer;
+    // Promise.resolve().then(() =>);
+  }
 }

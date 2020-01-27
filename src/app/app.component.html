@@ -1,2 +1,4 @@
-<courses-header [t]="title" ></courses-header>
-<courses-sidebar></courses-sidebar>
+<courses-header [myTitle]="title" [d]="drawer" ></courses-header>
+<courses-sidebar (setSidenavControl)="setSidenav($event)">
+  <h1>my content</h1>
+</courses-sidebar>
