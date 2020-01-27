@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
-
+// NgModule -> es6 module
+//  declarations => const/let
+// imports - import;
+// exports - export;
 @NgModule({
   declarations: [
     AppComponent,
@@ -10,7 +12,9 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
   ],
-  providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {
+}
+
+// NgModule, directives , pipe, service
