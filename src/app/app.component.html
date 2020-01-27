@@ -1,9 +1,2 @@
-<h3>{{title}}</h3>
-<div>My salary is {{getsSalary(1.2)}}</div>
-
-<div>{{account?.info?.male}}</div>
-<img [src]="imgSrc" [style.width.px]="imgWidth"
-     #image
-     (click)="getWidth(image)" >
-
-<input type="text" #searchEl (input)="search(imgWidth, searchEl)">
+<courses-header [t]="title" ></courses-header>
+<courses-sidebar></courses-sidebar>
