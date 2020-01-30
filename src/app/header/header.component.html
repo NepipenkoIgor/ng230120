@@ -2,5 +2,5 @@
   <button type="button" mat-button (click)="toggleSidenav()">
     <mat-icon matListIcon>view_headline</mat-icon>
   </button>
-  <span>{{myTitle}}</span>
+  <div [innerHTML]="titleContent" ></div>
 </mat-toolbar>

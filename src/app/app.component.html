@@ -1,9 +1,9 @@
-<courses-header [myTitle]="title" [d]="drawer" ></courses-header>
+<courses-header [myTitle]="title" [d]="drawer"></courses-header>
 
 <courses-sidebar (setSidenavControl)="setSidenav($event)">
-  <ng-template #sampleContent>
-    <h1>my content 1</h1>
+  <ng-template #sampleContent let-title let-description="subTitle">
+    <h1>{{title}}</h1>
     <h2>my content 2</h2>
-    <h3 class="content">my content 3</h3>
+    <h3 class="content">{{description}}</h3>
   </ng-template>
 </courses-sidebar>

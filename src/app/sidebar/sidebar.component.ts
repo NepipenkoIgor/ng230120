@@ -2,12 +2,12 @@ import {
   AfterContentInit,
   AfterViewInit,
   Component,
-  ContentChild,
+  ContentChild, ElementRef,
   EventEmitter,
   OnInit,
   Output,
   TemplateRef,
-  ViewChild, ViewContainerRef
+  ViewChild, ViewContainerRef,
 } from '@angular/core';
 import { MatDrawer } from '@angular/material';
 
@@ -29,7 +29,12 @@ export class SidebarComponent implements OnInit, AfterContentInit, AfterViewInit
   @ViewChild('viewContent', {read: ViewContainerRef, static: false})
   public myView!: ViewContainerRef;
 
+  public constructor(private el: ElementRef) {
+
+  }
+
   public ngOnInit() {
+    console.log(this.el);
     this.setSidenavControl.emit(this.drawer);
   }
 
@@ -38,6 +43,25 @@ export class SidebarComponent implements OnInit, AfterContentInit, AfterViewInit
   }
 
   public ngAfterViewInit(): void {
-    this.myView.createEmbeddedView(this.myContent);
+    Promise.resolve().then(() => {
+      this.myView.createEmbeddedView(this.myContent, {
+        $implicit: 'Implicit Title',
+        subTitle: 'MY subtitle',
+      });
+    });
+
   }
 }
+
+// console.log('start');
+// setTimeout(() => console.log('timeout 1'));
+// setTimeout(() => console.log('timeout 2'));
+// Promise.resolve().then(() => console.log('promise 1'));
+// Promise.resolve().then(() => console.log('promise 2'));
+// console.log('end');
+
+// ---console.log('start') --- console.log('timeout 1') --- console.log('timeout 2')
+//    console.log('end');
+//
+//    console.log('promise 1')
+//    console.log('promise 2')
