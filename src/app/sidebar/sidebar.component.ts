@@ -1,4 +1,14 @@
-import { Component, ContentChild, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import {
+  AfterContentInit,
+  AfterViewInit,
+  Component,
+  ContentChild,
+  EventEmitter,
+  OnInit,
+  Output,
+  TemplateRef,
+  ViewChild, ViewContainerRef
+} from '@angular/core';
 import { MatDrawer } from '@angular/material';
 
 @Component({
@@ -6,7 +16,7 @@ import { MatDrawer } from '@angular/material';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css'],
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent implements OnInit, AfterContentInit, AfterViewInit {
 
   @Output()
   public setSidenavControl: EventEmitter<MatDrawer> = new EventEmitter<MatDrawer>(true);
@@ -15,11 +25,19 @@ export class SidebarComponent implements OnInit {
   public drawer!: MatDrawer;
 
   @ContentChild('sampleContent', {static: false})
-  public myContent: any;
+  public myContent!: TemplateRef<any>;
+  @ViewChild('viewContent', {read: ViewContainerRef, static: false})
+  public myView!: ViewContainerRef;
 
   public ngOnInit() {
-    console.log(this.myContent);
     this.setSidenavControl.emit(this.drawer);
   }
 
+  public ngAfterContentInit(): void {
+    console.log(this.myContent);
+  }
+
+  public ngAfterViewInit(): void {
+    this.myView.createEmbeddedView(this.myContent);
+  }
 }
