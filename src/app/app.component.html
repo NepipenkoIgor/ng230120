@@ -2,8 +2,8 @@
 
 <courses-sidebar (setSidenavControl)="setSidenav($event)">
   <ng-template #sampleContent let-title let-description="subTitle">
-    <h1>{{title}}</h1>
-    <h2>my content 2</h2>
-    <h3 class="content">{{description}}</h3>
+    <pre>
+      {{products$ | async  | json}}
+    </pre>
   </ng-template>
 </courses-sidebar>
