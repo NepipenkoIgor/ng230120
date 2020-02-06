@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatDrawer } from '@angular/material';
-import { IProducts, products$ } from './mock';
+import { IProduct, products$ } from './mock';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -12,8 +12,9 @@ import { Observable } from 'rxjs';
 export class AppComponent implements OnInit {
   public title = 'ng230120';
   public drawer !: MatDrawer;
+  // public searchText: string = '';
 
-  public products$: Observable<IProducts[]> = products$;
+  public products$: Observable<IProduct[]> = products$;
 //  public products: IProducts[] = [];
 
   public account = {
@@ -22,10 +23,15 @@ export class AppComponent implements OnInit {
   };
 
   public ngOnInit(): void {
+
   }
 
   public setSidenav(drawer: MatDrawer) {
     this.drawer = drawer;
     // Promise.resolve().then(() =>);
   }
+
+  // search({target}: Event) {
+  //   this.searchText = (target as HTMLInputElement).value;
+  // }
 }

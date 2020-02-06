@@ -3,7 +3,7 @@ import {
   Input,
 } from '@angular/core';
 import { MatDrawer } from '@angular/material';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'courses-header',
@@ -17,16 +17,13 @@ export class HeaderComponent {
     if (!value) {
       return;
     }
-    this.titleContent = this.domSanitizer.bypassSecurityTrustHtml(`<span style = 'color:red' >${value}</span>`);
+    this.titleContent = `<span style = 'color:red' >${value}</span>`;
   }
-
-  public titleContent!: SafeHtml;
+  public titleContent: string = '';
   @Input()
   public d!: MatDrawer;
 
-  public constructor(
-    private domSanitizer: DomSanitizer
-  ) {
+  public constructor() {
   }
 
   toggleSidenav(): void {

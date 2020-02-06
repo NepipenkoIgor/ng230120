@@ -1,13 +1,16 @@
 <courses-header [myTitle]="title" [d]="drawer"></courses-header>
 <courses-sidebar (setSidenavControl)="setSidenav($event)">
+
   <ng-template #sampleContent let-title let-description="subTitle">
-    <ng-container *ngIf="products$ | async as products;else loader">
-      <ng-container *ngFor="let product of products;  index as i; odd as isOdd; first as f">
-        <div [ngClass]="{active: product.title === 'Product 231', first: f}">
-          {{i + 1}}.  {{product.title}} - {{isOdd}}
-        </div>
-      </ng-container>
-    </ng-container>
+    <mat-form-field>
+      <input matInput placeholder="Input" #searchEl>
+    </mat-form-field>
+    <mat-grid-list cols="4" rowHeight="500" *ngIf="products$ | async as products;else loader">
+      <mat-grid-tile *ngFor="let product of products | productsFilter:searchEl.value; odd as isOdd">
+        <courses-product-card [product]="product" [isOdd]="isOdd">
+        </courses-product-card>
+      </mat-grid-tile>
+    </mat-grid-list>
   </ng-template>
 </courses-sidebar>
 

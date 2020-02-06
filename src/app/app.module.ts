@@ -5,6 +5,9 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { SharedModule } from './shared/shared.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { ProductCardComponent } from './product-card/product-card.component';
+import { ProductsFilterPipe } from './products-filter.pipe';
+import { SanitarPipe } from './header/sanitar.pipe';
 // NgModule -> es6 module
 //  declarations => const/let
 // imports - import;
@@ -14,6 +17,9 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     AppComponent,
     HeaderComponent,
     SidebarComponent,
+    ProductCardComponent,
+    ProductsFilterPipe,
+    SanitarPipe,
   ],
   imports: [
     BrowserModule,
