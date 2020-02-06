@@ -81,7 +81,7 @@ export const products = [
     'img': 'assets/img/product-1.jpg',
     'price': 200,
     'author': 'Igor',
-    'isFavorite': true
+    'isFavorite': true,
   }
 ];
 export const products$: Observable<IProducts[]> = of(products)

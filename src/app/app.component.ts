@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatDrawer } from '@angular/material';
 import { IProducts, products$ } from './mock';
-import { interval } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'course-root#test',
@@ -22,20 +22,6 @@ export class AppComponent implements OnInit {
   };
 
   public ngOnInit(): void {
-    const sequence$ = interval(1000);
-    sequence$.subscribe((v) => {
-      console.log(v);
-    });
-
-    setTimeout(() => {
-      sequence$.subscribe((v) => {
-        console.log('Sub 2', v);
-      });
-    }, 5000);
-    // this.products$.subscribe((products) => {
-    //   console.log(products);
-    //   this.products = products;
-    // });
   }
 
   public setSidenav(drawer: MatDrawer) {
