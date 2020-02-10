@@ -1,4 +1,9 @@
-<div *coursesExchangeRates="let rate from rates autoplay 'off'; let ctrl = controller   ">
-  {{rate | json}}
-  {{ctrl}}
+<div *coursesExchangeRates="let rate of rates autoplay 'on' duration 2000; let ctrl = controller   ">
+  <button mat-button (click)="ctrl.prev()">
+    <mat-icon>keyboard_arrow_left</mat-icon>
+  </button>
+  <span>{{rate.value | currency:rate.currency : 'symbol-narrow'}}</span>
+  <button mat-button (click)="ctrl.next()">
+    <mat-icon>keyboard_arrow_right</mat-icon>
+  </button>
 </div>
