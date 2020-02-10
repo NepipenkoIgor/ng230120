@@ -10,6 +10,7 @@ import { ProductsFilterPipe } from './products-filter.pipe';
 import { SanitarPipe } from './header/sanitar.pipe';
 import { ExchangeRatesComponent } from './header/exchange-rates/exchange-rates.component';
 import { ExchangeRatesDirective } from './header/exchange-rates/exchange-rates.directive';
+import { HiddenDirective } from './header/exchange-rates/hidden.directive';
 // NgModule -> es6 module
 //  declarations => const/let
 // imports - import;
@@ -24,6 +25,7 @@ import { ExchangeRatesDirective } from './header/exchange-rates/exchange-rates.d
     SanitarPipe,
     ExchangeRatesComponent,
     ExchangeRatesDirective,
+    HiddenDirective,
   ],
   imports: [
     BrowserModule,
