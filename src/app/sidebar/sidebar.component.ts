@@ -9,7 +9,7 @@ import {
   TemplateRef,
   ViewChild, ViewContainerRef,
 } from '@angular/core';
-import { MatDrawer } from '@angular/material';
+import { MatDrawer } from '@angular/material/sidenav';
 
 @Component({
   selector: 'courses-sidebar',
@@ -24,9 +24,9 @@ export class SidebarComponent implements OnInit, AfterContentInit, AfterViewInit
   @ViewChild('drawer', {static: true})
   public drawer!: MatDrawer;
 
-  @ContentChild('sampleContent', {static: false})
+  @ContentChild('sampleContent')
   public myContent!: TemplateRef<any>;
-  @ViewChild('viewContent', {read: ViewContainerRef, static: false})
+  @ViewChild('viewContent', { read: ViewContainerRef })
   public myView!: ViewContainerRef;
 
   public constructor(private el: ElementRef) {

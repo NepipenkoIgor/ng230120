@@ -2,8 +2,7 @@ import {
   Component,
   Input,
 } from '@angular/core';
-import { MatDrawer } from '@angular/material';
-import { SafeHtml } from '@angular/platform-browser';
+import { MatDrawer } from '@angular/material/sidenav';
 
 @Component({
   selector: 'courses-header',
