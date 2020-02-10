@@ -2,5 +2,6 @@
   <button type="button" mat-button (click)="toggleSidenav()">
     <mat-icon matListIcon>view_headline</mat-icon>
   </button>
-  <div [innerHTML]="titleContent | sanitar" ></div>
+  <div [innerHTML]="titleContent | sanitar"></div>
+  <courses-exchange-rates [rates]="rates"></courses-exchange-rates>
 </mat-toolbar>

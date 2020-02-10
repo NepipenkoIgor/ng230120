@@ -8,6 +8,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { ProductsFilterPipe } from './products-filter.pipe';
 import { SanitarPipe } from './header/sanitar.pipe';
+import { ExchangeRatesComponent } from './header/exchange-rates/exchange-rates.component';
+import { ExchangeRatesDirective } from './header/exchange-rates/exchange-rates.directive';
 // NgModule -> es6 module
 //  declarations => const/let
 // imports - import;
@@ -20,6 +22,8 @@ import { SanitarPipe } from './header/sanitar.pipe';
     ProductCardComponent,
     ProductsFilterPipe,
     SanitarPipe,
+    ExchangeRatesComponent,
+    ExchangeRatesDirective,
   ],
   imports: [
     BrowserModule,

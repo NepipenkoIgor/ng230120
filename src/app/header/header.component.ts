@@ -3,6 +3,7 @@ import {
   Input,
 } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
+import { IExchangeRate } from './exchange-rates/exchange-rates.component';
 
 @Component({
   selector: 'courses-header',
@@ -21,6 +22,12 @@ export class HeaderComponent {
   public titleContent: string = '';
   @Input()
   public d!: MatDrawer;
+
+  public rates: IExchangeRate[] = [
+    {value: 24, currency: 'EUR'},
+    {value: 20, currency: 'USD'},
+    {value: 0.4, currency: 'RUB'},
+  ];
 
   public constructor() {
   }
