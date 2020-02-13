@@ -15,6 +15,8 @@ import { ProductsService } from './products.service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BASE_URL, BASE_URL_TOKEN } from './config';
 import { CustomInterceptorService } from './custom-interceptor.service';
+import { CardModalContentComponent } from './product-card/card-modal-content/card-modal-content.component';
+import { ModalModule } from './modal/modal.module';
 // NgModule -> es6 module
 //  declarations => const/let
 // imports - import;
@@ -30,12 +32,14 @@ import { CustomInterceptorService } from './custom-interceptor.service';
     ExchangeRatesComponent,
     ExchangeRatesDirective,
     HiddenDirective,
+    CardModalContentComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     SharedModule,
     HttpClientModule,
+    ModalModule.forRoot()
   ],
   providers: [
     {
