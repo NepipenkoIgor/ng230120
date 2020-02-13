@@ -11,6 +11,9 @@ import { SanitarPipe } from './header/sanitar.pipe';
 import { ExchangeRatesComponent } from './header/exchange-rates/exchange-rates.component';
 import { ExchangeRatesDirective } from './header/exchange-rates/exchange-rates.directive';
 import { HiddenDirective } from './header/exchange-rates/hidden.directive';
+import { ProductsService } from './products.service';
+import { HttpClientModule } from '@angular/common/http';
+import { environment } from '../environments/environment';
 // NgModule -> es6 module
 //  declarations => const/let
 // imports - import;
@@ -31,6 +34,20 @@ import { HiddenDirective } from './header/exchange-rates/hidden.directive';
     BrowserModule,
     BrowserAnimationsModule,
     SharedModule,
+    HttpClientModule,
+  ],
+  providers: [
+    ProductsService,
+    {
+      provide: 'baseUrl',
+      useValue: environment.baseUrl,
+      multi: true
+    },
+    {
+      provide: 'baseUrl',
+      useValue: 'http://google.com',
+      multi: true
+    },
   ],
   bootstrap: [AppComponent],
 })
