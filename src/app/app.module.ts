@@ -12,8 +12,9 @@ import { ExchangeRatesComponent } from './header/exchange-rates/exchange-rates.c
 import { ExchangeRatesDirective } from './header/exchange-rates/exchange-rates.directive';
 import { HiddenDirective } from './header/exchange-rates/hidden.directive';
 import { ProductsService } from './products.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BASE_URL, BASE_URL_TOKEN } from './config';
+import { CustomInterceptorService } from './custom-interceptor.service';
 // NgModule -> es6 module
 //  declarations => const/let
 // imports - import;
@@ -37,6 +38,11 @@ import { BASE_URL, BASE_URL_TOKEN } from './config';
     HttpClientModule,
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CustomInterceptorService,
+      multi: true,
+    },
     ProductsService,
     {
       provide: BASE_URL_TOKEN,
