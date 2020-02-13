@@ -13,7 +13,7 @@ import { ExchangeRatesDirective } from './header/exchange-rates/exchange-rates.d
 import { HiddenDirective } from './header/exchange-rates/hidden.directive';
 import { ProductsService } from './products.service';
 import { HttpClientModule } from '@angular/common/http';
-import { environment } from '../environments/environment';
+import { BASE_URL, BASE_URL_TOKEN } from './config';
 // NgModule -> es6 module
 //  declarations => const/let
 // imports - import;
@@ -39,14 +39,12 @@ import { environment } from '../environments/environment';
   providers: [
     ProductsService,
     {
-      provide: 'baseUrl',
-      useValue: environment.baseUrl,
-      multi: true
+      provide: BASE_URL_TOKEN,
+      useValue: BASE_URL,
     },
     {
       provide: 'baseUrl',
       useValue: 'http://google.com',
-      multi: true
     },
   ],
   bootstrap: [AppComponent],
