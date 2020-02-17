@@ -51,6 +51,7 @@ import { BackofficeComponent } from './content/backoffice/backoffice.component';
     HttpClientModule,
     ModalModule.forRoot(),
     RouterModule.forRoot(routes),
+    SharedModule.forRoot(),
   ],
   providers: [
     {

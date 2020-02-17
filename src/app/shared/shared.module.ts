@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -11,6 +11,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { AuthGuardService } from './services/auth-guard.service';
 
 @NgModule({
   exports: [
@@ -29,4 +30,12 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
   ],
 })
 export class SharedModule {
+  public static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: SharedModule,
+      providers: [
+        AuthGuardService,
+      ],
+    };
+  }
 }
