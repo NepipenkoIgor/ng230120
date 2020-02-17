@@ -1,7 +1,15 @@
 import { Observable } from 'rxjs';
-import { IProduct } from '../../../mock';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
+export interface IProduct {
+  '_id': string;
+  'title': string;
+  'img': string;
+  'price': number;
+  'author': string;
+  'isFavorite': boolean;
+}
 
 // TODO Injectable + Inject
 @Injectable()

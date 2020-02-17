@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { Observable } from 'rxjs';
-import { IProduct } from '../../../mock';
-import { ProductsService } from './products.service';
+import { IProduct, ProductsService } from './products.service';
 
 @Component({
   selector: 'courses-products',

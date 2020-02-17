@@ -12,6 +12,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { AuthGuardService } from './services/auth-guard.service';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { BASE_URL, BASE_URL_TOKEN } from '../config';
+import { CustomInterceptorService } from './services/custom-interceptor.service';
 
 @NgModule({
   exports: [
@@ -27,7 +30,15 @@ import { AuthGuardService } from './services/auth-guard.service';
     MatFormFieldModule,
     MatInputModule,
     MatCheckboxModule,
+    HttpClientModule,
   ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CustomInterceptorService,
+      multi: true,
+    },
+  ]
 })
 export class SharedModule {
   public static forRoot(): ModuleWithProviders {
@@ -35,6 +46,10 @@ export class SharedModule {
       ngModule: SharedModule,
       providers: [
         AuthGuardService,
+        {
+          provide: BASE_URL_TOKEN,
+          useValue: BASE_URL,
+        },
       ],
     };
   }
