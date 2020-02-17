@@ -1,0 +1,6 @@
+<courses-header [myTitle]="title" [d]="drawer"></courses-header>
+<courses-sidebar (setSidenavControl)="setSidenav($event)">
+  <ng-template #sampleContent let-title let-description="subTitle">
+    <router-outlet></router-outlet>
+  </ng-template>
+</courses-sidebar>

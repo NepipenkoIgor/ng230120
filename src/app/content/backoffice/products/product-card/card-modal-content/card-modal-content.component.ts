@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IProduct } from '../../mock';
+import { IProduct } from '../../../../../mock';
 
 @Component({
   selector: 'courses-card-modal-content',

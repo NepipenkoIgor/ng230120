@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { IProduct } from '../mock';
-import { ModalService } from '../modal/modal.service';
+import { IProduct } from '../../../../mock';
+import { ModalService } from '../../../../modal/modal.service';
 import { CardModalContentComponent } from './card-modal-content/card-modal-content.component';
 
 @Component({
