@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'courses-login',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  public firstName = new FormControl('Ihor', []);
+
+  constructor() {
+  }
 
   ngOnInit(): void {
+  }
+
+  public login(info: { firstName: string, password: string }) {
+    console.log(info);
   }
 
 }

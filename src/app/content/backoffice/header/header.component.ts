@@ -1,6 +1,6 @@
 import {
-  Component,
-  Input,
+  Component, EventEmitter,
+  Input, Output,
 } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
 import { IExchangeRate } from './exchange-rates/exchange-rates.component';
@@ -19,6 +19,10 @@ export class HeaderComponent {
     }
     this.titleContent = `<span style = 'color:red' >${value}</span>`;
   }
+
+  @Output()
+  public myTitleChange: EventEmitter<any> = new EventEmitter();
+
   public titleContent: string = '';
   @Input()
   public d!: MatDrawer;
