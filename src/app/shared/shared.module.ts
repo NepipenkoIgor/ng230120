@@ -15,8 +15,10 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BASE_URL, BASE_URL_TOKEN } from '../config';
 import { CustomInterceptorService } from './services/custom-interceptor.service';
+import { UserValidatorDirective } from './directives/user-validator.directive';
 
 @NgModule({
+  declarations: [UserValidatorDirective],
   exports: [
     CommonModule,
     MatToolbarModule,
@@ -31,6 +33,7 @@ import { CustomInterceptorService } from './services/custom-interceptor.service'
     MatInputModule,
     MatCheckboxModule,
     HttpClientModule,
+    UserValidatorDirective
   ],
   providers: [
     {

@@ -1,2 +1,39 @@
-<p>signup works!</p>
-<button mat-button (click)="goToLogin()" >Go to login</button>
+<div class="signin-content">
+  <mat-card>
+    <mat-card-content>
+      <div [formGroup]="signupForm">
+        <p>Sign Up to continue</p>
+        <mat-form-field>
+          <input matInput type="text"
+                 placeholder="User Name"
+                 [formControl]="signupForm.get('username')"
+                 minlength="4"
+          >
+          <mat-error *ngIf="signupForm?.get('username')?.errors as error"> {{error.onlyLetters}}</mat-error>
+        </mat-form-field>
+        <div formGroupName="password">
+          <mat-form-field>
+            <input matInput type="password"
+                   placeholder="Password" formControlName="password"
+                   required minlength="4"
+            >
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput type="password"
+                   placeholder="Password" formControlName="cpassword"
+                   required minlength="4"
+            >
+          </mat-form-field>
+        </div>
+        <button mat-raised-button color="primary"
+                type="button"
+                [disabled]="signupForm.invalid"
+                (click)="signUp(signupForm.value)"
+        >Sign Up
+        </button>
+        <a mat-button (click)="goToLogin()">Go to signup</a>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+

@@ -1,7 +1,7 @@
 <div class="signin-content">
   <mat-card>
     <mat-card-content>
-      <form #f="ngForm" (ngSubmit)="login(f.value)">
+      <div #f="ngForm" ngForm>
         <p>Log in to continue</p>
         <mat-form-field>
           <input matInput type="text"
@@ -19,12 +19,13 @@
           >
         </mat-form-field>
         <button mat-raised-button color="primary"
-                type="submit"
+                type="button"
+                (click)="login(f.value)"
                 [disabled]="f.invalid"
         >Log In
         </button>
         <a mat-button [routerLink]="['../signup']">Go to signup</a>
-      </form>
+      </div>
     </mat-card-content>
   </mat-card>
 </div>
