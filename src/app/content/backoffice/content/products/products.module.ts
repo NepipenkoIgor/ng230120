@@ -7,6 +7,7 @@ import { ProductsComponent } from './products.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { ProductsFilterPipe } from './products-filter.pipe';
 import { OneProductComponent } from './one-product/one-product.component';
+import { ProductResolverService } from './one-product/product-resolver.service';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { OneProductComponent } from './one-product/one-product.component';
   ],
   providers: [
     ProductsService,
+    ProductResolverService
   ]
 })
 export class ProductsModule {

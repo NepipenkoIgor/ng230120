@@ -1,0 +1,4 @@
+<h1>{{title$ | async | json}}</h1>
+<ng-container *ngIf="product$ | async as product">
+  <h4>{{product.title}}</h4>
+</ng-container>
