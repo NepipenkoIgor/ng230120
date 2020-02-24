@@ -1,13 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { BackofficeComponent } from './backoffice.component';
 
 @NgModule({
   imports: [
     RouterModule.forChild([
       {
         path: '',
-        loadChildren: () => import('./content/products/products.module').then((m) => m.ProductsModule),
-
+        component: BackofficeComponent,
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('./content/products/products.module').then((m) => m.ProductsModule),
+          },
+        ],
       },
     ]),
   ],

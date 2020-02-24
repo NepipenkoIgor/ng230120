@@ -6,6 +6,7 @@ import { CardModalContentComponent } from './product-card/card-modal-content/car
 import { ProductsComponent } from './products.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { ProductsFilterPipe } from './products-filter.pipe';
+import { OneProductComponent } from './one-product/one-product.component';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { ProductsFilterPipe } from './products-filter.pipe';
     ProductsComponent,
     ProductCardComponent,
     ProductsFilterPipe,
+    OneProductComponent,
   ],
   imports: [
     SharedModule,

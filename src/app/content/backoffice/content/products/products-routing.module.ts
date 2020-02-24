@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ProductsComponent } from './products.component';
+import { OneProductComponent } from './one-product/one-product.component';
 
 
 @NgModule({
@@ -11,8 +12,8 @@ import { ProductsComponent } from './products.component';
         component: ProductsComponent,
       },
       {
-        path: '',
-        component: ProductsComponent,
+        path: ':id',
+        component: OneProductComponent,
       },
     ]),
   ],
