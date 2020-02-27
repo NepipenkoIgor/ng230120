@@ -16,6 +16,7 @@ export class SignupComponent implements OnInit {
     username: new FormControl('', [Validators.required, this.nameValidator],
       this.uniqNameValidator.bind(this)),
     emails: new FormArray([new FormControl('')]),
+    male: new FormControl(true),
     password: new FormGroup({
       password: new FormControl(),
       cpassword: new FormControl(),
