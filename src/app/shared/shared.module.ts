@@ -16,6 +16,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BASE_URL, BASE_URL_TOKEN } from '../config';
 import { CustomInterceptorService } from './services/custom-interceptor.service';
 import { UserValidatorDirective } from './directives/user-validator.directive';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [UserValidatorDirective],
@@ -33,7 +34,8 @@ import { UserValidatorDirective } from './directives/user-validator.directive';
     MatInputModule,
     MatCheckboxModule,
     HttpClientModule,
-    UserValidatorDirective
+    UserValidatorDirective,
+    FlexLayoutModule
   ],
   providers: [
     {

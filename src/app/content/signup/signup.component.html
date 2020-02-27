@@ -11,6 +11,21 @@
           >
           <mat-error *ngIf="signupForm?.get('username')?.errors as error"> {{error.onlyLetters}}</mat-error>
         </mat-form-field>
+        <div fxLayout="row" fxLayoutAlign="space-around center"
+             *ngFor="let c of getControls(signupForm,'emails'); index as i; first as f">
+          <mat-form-field fxLayout="90">
+            <input matInput type="text"
+                   placeholder="Email"
+                   [formControl]="c"
+            />
+          </mat-form-field>
+          <div fxLayout="10" fxLayout="row">
+            <mat-icon *ngIf="f" (click)="addEmail()">add</mat-icon>
+            <mat-icon *ngIf="getControls(signupForm,'emails').length > 1"
+                      (click)="removeEmail(i)"
+            >delete</mat-icon>
+          </div>
+        </div>
         <div formGroupName="password">
           <mat-form-field>
             <input matInput type="password"
@@ -24,10 +39,11 @@
                    required minlength="4"
             >
           </mat-form-field>
+          {{signupForm.get('password')?.get('password')?.errors | json}}
         </div>
         <button mat-raised-button color="primary"
                 type="button"
-                [disabled]="signupForm.invalid"
+                [disabled]="signupForm.invalid || signupForm.pending"
                 (click)="signUp(signupForm.value)"
         >Sign Up
         </button>

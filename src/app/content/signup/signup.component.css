@@ -1,7 +1,7 @@
 .signin-content {
   padding: 60px 1em;
 }
-mat-form-field {
+mat-form-field, .mat-form-field-wrapper {
   width: 100%;
 }
 mat-card {
