@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { ProductsService } from './products.service';
 import { SharedModule } from '../../../../shared/shared.module';
 import { ProductsRoutingModule } from './products-routing.module';
 import { CardModalContentComponent } from './product-card/card-modal-content/card-modal-content.component';
@@ -22,7 +21,6 @@ import { ProductResolverService } from './one-product/product-resolver.service';
     ProductsRoutingModule
   ],
   providers: [
-    ProductsService,
     ProductResolverService
   ]
 })

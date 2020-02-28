@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, Router } from '@angular/router';
-import { IProduct } from '../products.service';
 import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map } from 'rxjs/operators';
+import { IProduct } from '../../../../../store/reducers/products.reducer';
 
 @Injectable()
 export class ProductResolverService implements Resolve<IProduct | null> {

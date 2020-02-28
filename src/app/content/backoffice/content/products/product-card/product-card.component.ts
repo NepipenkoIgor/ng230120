@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ModalService } from '../../../../../modal/modal.service';
 import { CardModalContentComponent } from './card-modal-content/card-modal-content.component';
-import { IProduct } from '../products.service';
+import { IProduct } from '../../../../../store/reducers/products.reducer';
 
 @Component({
   selector: 'courses-product-card',
