@@ -15,7 +15,7 @@ export const initialState: IProduct[] = [];
 const scoreboardReducer = createReducer(
   initialState,
   on(getProductsSuccess, (_state, {products}) => {
-    return [...products];
+    return products;
   })
 );
 

@@ -25,12 +25,6 @@ export class ProductsComponent implements OnInit {
 
   public ngOnInit(): void {
     this.store.dispatch(getProductsPending());
-    this.store.select('products').subscribe((products) => {
-      console.log(products);
-    });
-    setTimeout(() => {
-      this.store.dispatch(getProductsPending());
-    }, 5000);
   }
 
   public toggleOnlyFavorites(e: MatCheckboxChange) {

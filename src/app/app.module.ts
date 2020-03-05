@@ -11,7 +11,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { effects } from './store/effects';
-import { ToastrModule } from 'ngx-toastr';
 // NgModule -> es6 module
 //  declarations => const/let
 // imports - import;
@@ -32,7 +31,6 @@ import { ToastrModule } from 'ngx-toastr';
       logOnly: environment.production, // Restrict extension to log-only mode
     }),
     EffectsModule.forRoot(effects),
-    ToastrModule.forRoot(),
   ],
   bootstrap: [AppComponent],
 })
