@@ -12,10 +12,16 @@ import { BackofficeComponent } from './backoffice.component';
           {
             path: '',
             loadChildren: () => import('./content/products/products.module').then((m) => m.ProductsModule),
+            data: {
+              state: 'products'
+            }
           },
           {
             path: 'order/cart',
             loadChildren: () => import('./content/cart/cart.module').then((m) => m.CartModule),
+            data: {
+              state: 'cart'
+            }
           },
         ],
       },

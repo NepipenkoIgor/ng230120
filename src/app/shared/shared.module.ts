@@ -17,6 +17,7 @@ import { BASE_URL, BASE_URL_TOKEN } from '../config';
 import { CustomInterceptorService } from './services/custom-interceptor.service';
 import { UserValidatorDirective } from './directives/user-validator.directive';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @NgModule({
   declarations: [UserValidatorDirective],
@@ -35,7 +36,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatCheckboxModule,
     HttpClientModule,
     UserValidatorDirective,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatBadgeModule,
   ],
   providers: [
     {

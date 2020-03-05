@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { IRootState } from '../../../../store';
-import { ICartProduct, selectCartProducts } from 'src/app/store/reducers/cart.reducer';
+import { cartProducts, ICartProduct, trueProductsPrice } from 'src/app/store/reducers/cart.reducer';
 import { decrementCountForProduct, incrementCountForProduct, removeProductFromCart } from '../../../../store/actions/cart.action';
 
 @Component({
@@ -11,7 +11,8 @@ import { decrementCountForProduct, incrementCountForProduct, removeProductFromCa
 })
 export class CartComponent implements OnInit {
 
-  public products$ = this.store.select(selectCartProducts);
+  public products$ = this.store.select(cartProducts);
+  public totalPrice$ = this.store.select(trueProductsPrice);
 
   constructor(
     private readonly store: Store<IRootState>

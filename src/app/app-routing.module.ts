@@ -9,7 +9,8 @@ import { AuthGuardService } from './shared/services/auth-guard.service';
       {
         path: 'login',
         loadChildren: () => import('./content/login/login.module').then((m) => m.LoginModule),
-        canActivate: [AuthGuardService]
+        canActivate: [AuthGuardService],
+        outlet: 'left'
       },
       {
         path: 'signup',

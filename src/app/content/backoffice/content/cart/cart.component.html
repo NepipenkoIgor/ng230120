@@ -1,9 +1,14 @@
 <div *ngFor="let product of products$ | async; trackBy: trackById" fxLayout="row" fxLayoutAlign="space-around center">
   <img [src]="product.img">
+  <span>{{product.price}}</span>
   <div class="increment" fxLayout="row" fxLayoutAlign="space-between center">
     <mat-icon (click)="decrementCount(product)">remove</mat-icon>
     <p>{{product.count}}</p>
     <mat-icon (click)="incrementCount(product)">add</mat-icon>
   </div>
   <mat-icon (click)="removeProduct(product)">delete</mat-icon>
+</div>
+
+<div>
+  {{totalPrice$ |async}}
 </div>

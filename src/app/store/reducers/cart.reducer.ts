@@ -2,6 +2,7 @@ import { Action, createFeatureSelector, createReducer, createSelector, on } from
 import { IProduct } from './products.reducer';
 import { createEntityAdapter, EntityState } from '@ngrx/entity';
 import { addProductToCart, decrementCountForProduct, incrementCountForProduct, removeProductFromCart } from '../actions/cart.action';
+import { IUser } from './user.reducer';
 
 export interface ICartProduct extends IProduct {
   count: number;
@@ -43,8 +44,34 @@ const reducer = createReducer(
 
 export const {selectAll} = cartAdapter.getSelectors();
 export const selectCartState = createFeatureSelector<EntityState<ICartProduct>>('cart');
+export const selectUserState = createFeatureSelector<IUser>('user');
 
 export const selectCartProducts = createSelector(selectCartState, selectAll);
+
+export const trueProductsCount = createSelector(selectCartProducts,
+  (products: ICartProduct[]) => {
+    return products.reduce((count: number, product: ICartProduct) => {
+      return (count += product.count);
+    }, 0).toString();
+  });
+
+
+export const cartProducts = createSelector(
+  selectCartProducts,
+  selectUserState,
+  (products: ICartProduct[], user: IUser) => {
+    return products.map((product: ICartProduct) => {
+      return {...product, price: product.price * user.bonuses};
+    });
+  }
+);
+
+export const trueProductsPrice = createSelector(cartProducts,
+  (products: ICartProduct[]) => {
+    return products.reduce((price: number, product: ICartProduct) => {
+      return (price += product.price * product.count);
+    }, 0);
+  });
 
 export function cartReducer(state: EntityState<ICartProduct> | undefined, action: Action) {
   return reducer(state, action);
