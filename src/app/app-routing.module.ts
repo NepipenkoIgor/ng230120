@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AuthGuardService } from './shared/services/auth-guard.service';
+import { CustomPreloadService } from './shared/services/custom-preload.service';
 
 
 @NgModule({
@@ -26,7 +27,7 @@ import { AuthGuardService } from './shared/services/auth-guard.service';
         path: '**',
         redirectTo: 'backoffice',
       },
-    ]),
+    ], {preloadingStrategy: CustomPreloadService}),
   ],
   exports: [
     RouterModule,

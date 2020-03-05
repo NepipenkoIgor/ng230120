@@ -19,6 +19,6 @@ export class BackofficeComponent {
   }
 
   public getRouterState(outlet: RouterOutlet) {
-    return outlet && outlet.activatedRouteData && outlet.activatedRouteData.state;
+    return outlet?.activatedRouteData?.state;
   }
 }

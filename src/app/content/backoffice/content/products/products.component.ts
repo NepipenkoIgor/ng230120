@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Optional} from '@angular/core';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
@@ -17,8 +17,9 @@ export class ProductsComponent implements OnInit {
 
   public products$: Observable<IProduct[]> = this.store.select('products');
 
+  // Host/SkipSelf/Self/
   public constructor(
-    private readonly store: Store<IRootState>,
+    @Optional() private readonly store: Store<IRootState>,
   ) {
 
   }
