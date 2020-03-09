@@ -48,7 +48,8 @@ export const selectUserState = createFeatureSelector<IUser>('user');
 
 export const selectCartProducts = createSelector(selectCartState, selectAll);
 
-export const trueProductsCount = createSelector(selectCartProducts,
+export const trueProductsCount = createSelector(
+  selectCartProducts,
   (products: ICartProduct[]) => {
     return products.reduce((count: number, product: ICartProduct) => {
       return (count += product.count);

@@ -17,10 +17,12 @@ export class CustomInterceptorService implements HttpInterceptor {
   }
 
   public intercept<T extends IRes>(req: HttpRequest<T>, next: HttpHandler): Observable<HttpEvent<T>> {
-    const headers = req.headers
-      .append('Content-Type', 'application/json')
-      .append('Authorization',
-        'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5lcGlwZW5rbzEiLCJpYXQiOjE1NzYxNzgxNzN9.-dXOEZhBVHXp3goe7DROuoVTKSNIUjL-0hYDIhdzd00');
+    let headers = req.headers
+      .append('Content-Type', 'application/json');
+    if (req.url !== '/auth/signin' && req.url !== '/auth/signup') {
+      const authHeader = localStorage.getItem('accessToken');
+      headers = authHeader ? headers.append('Authorization', authHeader) : headers;
+    }
     const jsonReq = req.clone({
       headers,
       url: `${this.baseUrl}${req.url}`,

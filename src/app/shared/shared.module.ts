@@ -18,6 +18,7 @@ import { CustomInterceptorService } from './services/custom-interceptor.service'
 import { UserValidatorDirective } from './directives/user-validator.directive';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatBadgeModule } from '@angular/material/badge';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [UserValidatorDirective],
@@ -53,6 +54,7 @@ export class SharedModule {
       ngModule: SharedModule,
       providers: [
         AuthGuardService,
+        AuthService,
         {
           provide: BASE_URL_TOKEN,
           useValue: BASE_URL,
