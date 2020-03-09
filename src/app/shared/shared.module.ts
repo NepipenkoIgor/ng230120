@@ -19,6 +19,7 @@ import { UserValidatorDirective } from './directives/user-validator.directive';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatBadgeModule } from '@angular/material/badge';
 import { AuthService } from './services/auth.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [UserValidatorDirective],
@@ -39,6 +40,7 @@ import { AuthService } from './services/auth.service';
     UserValidatorDirective,
     FlexLayoutModule,
     MatBadgeModule,
+    FormsModule
   ],
   providers: [
     {

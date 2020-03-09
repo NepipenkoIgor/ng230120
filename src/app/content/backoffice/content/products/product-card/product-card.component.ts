@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { ModalService } from '../../../../../modal/modal.service';
-import { CardModalContentComponent } from './card-modal-content/card-modal-content.component';
 import { IProduct } from '../../../../../store/reducers/products.reducer';
 import { Store } from '@ngrx/store';
 import { IRootState } from '../../../../../store';
@@ -29,9 +28,10 @@ export class ProductCardComponent {
     this.product.isFavorite = !this.product.isFavorite;
   }
 
-  public addToCart() {
+  public async addToCart() {
+    const component = await import('./card-modal-content/card-modal-content.component')
     this.modalService.open({
-      component: CardModalContentComponent,
+      component: component.CardModalContentComponent,
       context: {
         product: this.product,
         save: () => {

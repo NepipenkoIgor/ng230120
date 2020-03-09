@@ -1,4 +1,6 @@
 <h1>{{title$ | async | json}}</h1>
 <ng-container *ngIf="product$ | async as product">
   <h4>{{product.title}}</h4>
+  <courses-default [product]="product"></courses-default>
+  <courses-on-push [product]="product"></courses-on-push>
 </ng-container>

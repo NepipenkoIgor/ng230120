@@ -3,7 +3,7 @@
     <mat-icon matListIcon>view_headline</mat-icon>
   </button>
   <div [innerHTML]="titleContent | sanitar"></div>
-  <courses-exchange-rates [rates]="rates"></courses-exchange-rates>
+<!--  <courses-exchange-rates [rates]="rates"></courses-exchange-rates>-->
   <mat-icon [matBadge]="totalCount$ | async" matBadgeColor="warn"
             [routerLink]="['/backoffice/order/cart']">shopping_cart
   </mat-icon>
